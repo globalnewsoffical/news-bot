@@ -42,17 +42,15 @@ except Exception as e:
 
 print("\n✍️ Generating Script...")
 try:
-    from google import genai as google_genai
-    client = google_genai.Client(api_key=GEMINI_KEY)
+    import google.generativeai as genai
+    genai.configure(api_key=GEMINI_KEY)
+    model = genai.GenerativeModel('gemini-2.0-flash-exp')
     prompt = f"""Write a 50-second YouTube Shorts script about this news:
 Title: {title}
 Description: {news_desc}
 Requirements: Engaging, hook viewers immediately, ~125-150 words, clear and punchy.
 Output ONLY the script, nothing else."""
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt,
-    )
+    response = model.generate_content(prompt)
     script = response.text.strip()
     print("✅ Script generated!")
 except Exception as e:
