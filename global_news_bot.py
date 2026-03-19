@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import json
 import random
 import requests
 import asyncio
@@ -45,7 +44,7 @@ print("\n✍️ Generating Script...")
 try:
     import google.generativeai as genai
     genai.configure(api_key=GEMINI_KEY)
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.0-flash-exp')
     prompt = f"""Write a 50-second YouTube Shorts script about this news:
 Title: {title}
 Description: {news_desc}
