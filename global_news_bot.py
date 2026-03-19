@@ -44,7 +44,7 @@ print("\n✍️ Generating Script...")
 try:
     import google.generativeai as genai
     genai.configure(api_key=GEMINI_KEY)
-    model = genai.GenerativeModel('gemini-2.0-flash-exp')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     prompt = f"""Write a 50-second YouTube Shorts script about this news:
 Title: {title}
 Description: {news_desc}
